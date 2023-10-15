@@ -66,11 +66,11 @@ const routes = [
 
 const Sidebar = () => {
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-[#11182] text-white">
+    <div className="space-y-4 py-4 flex flex-col h-full bg-gray-900 text-white">
       <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center pl-3 md-14">
-          <div className="relative w-8 h-8 mr-4">
-            <Image fill alt="logo" src={"/next.svg"} />
+          <div className="relative w-8 h-8  scale-150">
+            <Image fill alt="logo" src={"/logo.png"}  />
           </div>
           <h1 className={cn("text-2xl font-bold", montserrat.className)}>
             SamaritanAI
