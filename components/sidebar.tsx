@@ -72,7 +72,7 @@ const Sidebar = () => {
       <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center pl-3 md-14">
           <div className="relative w-8 h-8  scale-150">
-            <Image fill alt="logo" src={"/logo.png"}  />
+            <Image width={30} height={30} alt="logo" src={"/logoWhite.png"}  className="object-cover"/>
           </div>
           <h1 className={cn("text-2xl font-bold text-white", montserrat.className)}>
             SamaritanAI
@@ -98,3 +98,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+``
