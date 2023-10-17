@@ -36,6 +36,7 @@ const ConversationPage = () => {
       <div className="px-4 lg:px-8">
         <Form {...form}>
           <form
+          
             onSubmit={form.handleSubmit(onSubmit)}
             className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-md focus-within:shadow-violet-500/20 gird grid-cols-12 gap-2 grid"
           >
@@ -60,6 +61,9 @@ const ConversationPage = () => {
             </Button>
           </form>
         </Form>
+      </div>
+      <div className="space-y-4 mt-4">
+        Rendering
       </div>
     </div>
   );
