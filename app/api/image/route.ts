@@ -9,16 +9,12 @@ const openai = new OpenAI({
 });
 
 
-const instructionMessage ={
-  role:"system",
-  content:"You are a code generator. you must answer only in markdown code snippets.Use code comments for explanations",
-  
-}
+
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
     const body = await req.json(); 
-    const { messages } = body;
+    const { prompt, amount=1, resolution="512x512" } = body;
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -26,23 +22,19 @@ export async function POST(req: Request) {
     if (!openai.apiKey) { 
       return new NextResponse("OpenAI API key not found", { status: 500 });
     }
-    if (!messages) {
-      return new NextResponse("Messages are required", { status: 400 });
+    if (!prompt) {
+      return new NextResponse("prompt is required", { status: 400 });
     }
 
-    const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [instructionMessage, ...messages]
-      });
-    return NextResponse.json(response.choices[0].message);
+    const response = await openai.images.generate({
+      prompt:prompt,
+      n:parseInt(amount, 10),
+      size:resolution
+    });
+  return NextResponse.json(response.data);
 
   } catch (error) {
-    console.log("[CODE_ERROR]", error);
+    console.log("[IMAGE_ERROR]", error);
     return new NextResponse("Internal error"), { status: 500 };
   }
 }
-
-
-
-
-
