@@ -46,9 +46,7 @@ const CodePage = () => {
       });
       setMessages((current) => [...current, userMessage, response.data]);
 
-      console.log(messages);
-      console.log(response.data);
-      console.log(userMessage);
+     form.reset()
     } catch (error) {
       //add premium modal
       console.log(error);
@@ -69,7 +67,7 @@ const CodePage = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="rounded-lg border w-full p-4  md:px-6 focus-within:shadow-md focus-within:shadow-blue-500/20 gird grid-cols-12 gap-2 grid"
+            className="rounded-lg border w-full p-4  md:px-6 focus-within:shadow-md focus-within:shadow-blue-500/20  grid-cols-12 gap-2 grid"
           >
             <FormField
               name="prompt"
@@ -97,7 +95,7 @@ const CodePage = () => {
       </div>
       <div className="space-y-4 mt-4">
         {isLoading && <Loading/>}
-        {messages.length === 0 && !isLoading ? <Empty imgSrc='/emptyCode.png'/> : null}
+        {messages.length === 0 && !isLoading ? <Empty label="No code generated" imgSrc='/emptyCode.png'/> : null}
         <div className="flex flex-col-reverse space-y-8 px-6 md:pl-8">
           {messages.map((message: any) => (
             <div

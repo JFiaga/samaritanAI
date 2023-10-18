@@ -44,14 +44,12 @@ const ConversationPage = () => {
       });
       setMessages((current) => [...current, userMessage, response.data]);
 
-      console.log(messages);
-      console.log(response.data);
-      console.log(userMessage);
+form.reset()
     } catch (error) {
       //add premium modal
       console.log(error);
     } finally {
-      // router.refresh();
+      router.refresh();
     }
   };
   return (
@@ -67,7 +65,7 @@ const ConversationPage = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="rounded-lg border w-full p-4  md:px-6 focus-within:shadow-md focus-within:shadow-violet-500/20 gird grid-cols-12 gap-2 grid"
+            className="rounded-lg border w-full p-4  md:px-6 focus-within:shadow-md focus-within:shadow-violet-500/20  grid-cols-12 gap-2 grid"
           >
             <FormField
               name="prompt"
@@ -84,6 +82,8 @@ const ConversationPage = () => {
                 </FormItem>
               )}
             />
+
+            
             <Button
               className="col-span-12 lg:col-span-2 w-full"
               disabled={isLoading}
@@ -95,7 +95,7 @@ const ConversationPage = () => {
       </div>
       <div className="space-y-4 mt-4">
         {isLoading && <Loading/>}
-        {messages.length === 0 && !isLoading ? <Empty imgSrc="/emptyConversation.png"/> : null}
+        {messages.length === 0 && !isLoading ? <Empty label="No conversation started" imgSrc="/emptyConversation.png"/> : null}
         <div className="flex flex-col-reverse space-y-8 px-6 md:pl-8">
           {messages.map((message: any) => (
             <div
