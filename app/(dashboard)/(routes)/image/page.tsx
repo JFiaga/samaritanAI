@@ -13,7 +13,13 @@ import { amountOptions, formSchema, resolutionOptions } from "./constant";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Empty from "@/components/empty";
 
 import { cn } from "@/lib/utils";
@@ -88,16 +94,16 @@ const ImagePage = () => {
                     onValueChange={field.onChange}
                     value={field.value}
                     defaultValue={field.value}
-                  > 
+                  >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue defaultValue={field.value}/>
+                        <SelectValue defaultValue={field.value} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       {amountOptions.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
-{option.label}
+                          {option.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -106,7 +112,7 @@ const ImagePage = () => {
               )}
             />
 
-<FormField
+            <FormField
               control={form.control}
               name="resolution"
               render={({ field }) => (
@@ -116,16 +122,16 @@ const ImagePage = () => {
                     onValueChange={field.onChange}
                     value={field.value}
                     defaultValue={field.value}
-                  > 
+                  >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue defaultValue={field.value}/>
+                        <SelectValue defaultValue={field.value} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       {resolutionOptions.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
-{option.label}
+                          {option.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
