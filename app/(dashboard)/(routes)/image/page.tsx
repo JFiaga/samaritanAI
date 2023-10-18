@@ -47,6 +47,8 @@ const ImagePage = () => {
 
       setImages(urls);
       form.reset();
+
+      console.log(values)
     } catch (error) {
       //add premium modal
       console.log(error);
