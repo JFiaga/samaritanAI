@@ -95,7 +95,7 @@ const CodePage = () => {
       </div>
       <div className="space-y-4 mt-4">
         {isLoading && <Loading/>}
-        {messages.length === 0 && !isLoading ? <Empty label="No code generated" imgSrc='/emptyCode.png'/> : null}
+        {messages.length === 0 && !isLoading && <Empty label="No code generated" imgSrc='/emptyCode.png'/>}
         <div className="flex flex-col-reverse space-y-8 px-6 md:pl-8">
           {messages.map((message: any) => (
             <div

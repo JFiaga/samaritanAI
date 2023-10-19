@@ -61,7 +61,7 @@ const ImagePage = () => {
   return (
     <div className="flex flex-col space-y-5 pt-10">
       <Heading
-        title="Image Generator "
+        title="Image Generation "
         description="Turn your idea into an image"
         Icon={ImageIcon}
         iconColor="text-pink-500"
@@ -154,9 +154,8 @@ const ImagePage = () => {
       </div>
       <div className="space-y-4 mt-4">
         {isLoading && <Loading />}
-        {images.length === 0 && !isLoading ? (
-          <Empty label="No images generated" imgSrc="/emptyImage.png" />
-        ) : null}
+        {images.length === 0 && !isLoading &&
+          <Empty label="No images generated" imgSrc="/emptyImage.png" />}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
           {images.map((src) => (
             <Card key={src} className="rounded-lg overflow-hidden">
