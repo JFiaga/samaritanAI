@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Video } from "lucide-react";
 import { useState } from "react";
-import ChatCompletionRequestMessage from "openai";
+
 import { useRouter } from "next/navigation";
 
 import Heading from "@/components/heading";
@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Empty from "@/components/empty";
 import Loading from "@/components/loading";
-
 
 const VideoPage = () => {
   const router = useRouter();
@@ -30,15 +29,13 @@ const VideoPage = () => {
 
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-
     try {
-      setVideo(undefined)
+      setVideo(undefined);
 
       const response = await axios.post("api/video", values);
 
-      setVideo(response.data[0])
+      setVideo(response.data[0]);
       form.reset();
-
     } catch (error) {
       //add premium modal
       console.log(error);
@@ -70,7 +67,7 @@ const VideoPage = () => {
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
                       placeholder="clown fish swimming around a coral reef"
-                      {...field}  
+                      {...field}
                     />
                   </FormControl>
                 </FormItem>
@@ -92,8 +89,11 @@ const VideoPage = () => {
           <Empty label="No video generated" imgSrc="/emptyVideo.png" />
         )}
         {video && (
-          <video controls className="w-full mt-8 aspect-video rounded-lg border bg-black">
-            <source src={video}/>
+          <video
+            controls
+            className="w-full mt-8 aspect-video rounded-lg border bg-black"
+          >
+            <source src={video} />
           </video>
         )}
       </div>

@@ -66,24 +66,40 @@ const routes = [
 ];
 
 const Sidebar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-gray-900 ">
       <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center pl-3 md-14">
           <div className="relative w-8 h-8  scale-150">
-            <Image width={30} height={30} alt="logo" src={"/logoWhite.png"}  className="object-cover"/>
+            <Image
+              width={30}
+              height={30}
+              alt="logo"
+              src={"/logoWhite.png"}
+              className="object-cover"
+            />
           </div>
-          <h1 className={cn("text-2xl font-bold text-white", montserrat.className)}>
+          <h1  
+            className={cn(
+              "text-2xl font-bold text-white",
+              montserrat.className
+            )}
+          >
             SamaritanAI
           </h1>
         </Link>
-        <div className="space-y-1">
+        <div className="space-y-1 mt-10">
           {routes.map((route) => (
             <Link
               key={route.href}
               href={route.href}
-              className={cn("text-sm  group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",pathname===route.href ? "text-white bg-white/20" : "text-zinc-500")}
+              className={cn(
+                "text-sm  group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                pathname === route.href
+                  ? "text-white bg-white/20"
+                  : "text-zinc-500"
+              )}
             >
               <div className="flex items-center flex-1">
                 <route.icon className={cn("h-5 w-5 mr-3", route.color)} />
@@ -98,4 +114,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-``
+

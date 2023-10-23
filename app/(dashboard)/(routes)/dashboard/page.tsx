@@ -55,7 +55,7 @@ export default function DashboardPage() {
            Samaritan can help you!
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Chat with a smart AI - Experience the Powe of AI
+          Chat with a smart AI - Experience the Power of AI
         </p>
       </div>
       <div className="px- md:px-20 lg:px-32 space-y-4">

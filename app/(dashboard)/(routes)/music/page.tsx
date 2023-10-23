@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Music } from "lucide-react";
 import { useState } from "react";
-import ChatCompletionRequestMessage from "openai";
 import { useRouter } from "next/navigation";
 
 import Heading from "@/components/heading";

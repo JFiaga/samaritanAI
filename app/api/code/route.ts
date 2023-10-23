@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
 
@@ -14,7 +14,7 @@ const instructionMessage ={
   content:"You are a code generator. you must answer only in markdown code snippets.Use code comments for explanations",
   
 }
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const { userId } = auth();
     const body = await req.json();
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
  
   } catch (error) {
     console.log("[CODE_ERROR]", error);
-    return new NextResponse("Internal error"), { status: 500 };
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
 
